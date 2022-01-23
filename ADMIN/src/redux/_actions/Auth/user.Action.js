@@ -1,0 +1,191 @@
+import authAPI from "../../../Apis/Auth.Api"
+import {
+  LOGIN_USER_FAIL,
+  LOGIN_USER_SUCCESS,
+  REGISTER_USER_SUCCESS,
+  REGISTER_USER_FAIL,
+  GET_USER_FAIL,
+  GET_USER_SUCCESS,
+  LOGOUT_USER,
+  GET_ALL_USER_FAIL,
+  GET_ALL_USER_SUCCESS
+} from "./type"
+// import { changeLoading } from "../System/app.Action"
+import Cookies from "js-cookie"
+import { changeLoading } from "../System/app.Action"
+
+const loading = (loading = false) => dispatch => {
+  dispatch(changeLoading(loading))
+}
+
+export function loginUserSuccess(data) {
+  return {
+    type: LOGIN_USER_SUCCESS,
+    payload: data
+  }
+}
+
+export function loginUserFail() {
+  return {
+    type: LOGIN_USER_FAIL,
+    payload: {}
+  }
+}
+
+export function loginUser(dataToSubmit) {
+  return async dispatch => {
+    try {
+      //   dispatch(loading(true))
+      const res = await authAPI.login(dataToSubmit)
+      if (res.success) {
+        // dispatch(loading())
+        dispatch(loginUserSuccess(res.data))
+        console.log(res.data)
+        return true
+      }
+      //   dispatch(loading())
+      dispatch(loginUserFail())
+      return false
+    } catch {
+      //   dispatch(loading())
+      dispatch(loginUserFail())
+      return false
+    }
+  }
+}
+
+export const getAllUserSuccess = data => {
+  return {
+    type: GET_ALL_USER_SUCCESS,
+    payload: data
+  }
+}
+
+export const getAllUserFail = () => {
+  return {
+    type: GET_ALL_USER_FAIL,
+    payload: {}
+  }
+}
+
+
+export const getAllUser = () => async dispatch => {
+  try {
+    const res = await authAPI.getAllUser()
+    dispatch(getAllUserSuccess(res))
+  } catch (error) {
+    dispatch(getAllUserFail())
+  }
+}
+
+
+export const getUserSuccess = data => {
+  return {
+    type: GET_USER_SUCCESS,
+    payload: data
+  }
+}
+
+export const getUserFail = () => {
+  return {
+    type: GET_USER_FAIL,
+    payload: {}
+  }
+}
+
+export const authRequest = () => async dispatch => {
+  try {
+    dispatch(loading(true))
+    const res = await authAPI.getAuth()
+    if (res.success) {
+      dispatch(loading())
+      dispatch(getUserSuccess(res.data))
+      // console.log('user action:', res.data)
+      return { data: res.data, isAuth: true }
+    } else {
+      dispatch(loading())
+      dispatch(getUserFail())
+      return { isAuth: false }
+    }
+  } catch {
+    dispatch(loading())
+    dispatch(getUserFail())
+    return { isAuth: false }
+  }
+}
+
+export function logoutUser() {
+  Cookies.remove("token")
+  return {
+    type: LOGOUT_USER,
+    payload: {}
+  }
+}
+
+export const registerUserSuccess = data => {
+  return {
+    type: REGISTER_USER_SUCCESS,
+    payload: data
+  }
+}
+
+export const registerUserFail = () => {
+  return {
+    type: REGISTER_USER_FAIL,
+    payload: {}
+  }
+}
+
+export const registerUser = body => async dispatch => {
+  try {
+    // dispatch(loading(true))
+    const res = await authAPI.register(body)
+    if (!res.success) {
+      //   dispatch(loading())
+      dispatch(registerUserFail())
+    } else {
+      //   dispatch(loading())
+      dispatch(registerUserSuccess(res.data))
+    }
+    return res.success
+  } catch (err) {
+    console.log(err)
+    // dispatch(loading())
+    dispatch(registerUserFail())
+    return false
+  }
+}
+
+export const verifyUser = body => async dispatch => {
+  try {
+    // dispatch(loading(true))
+    const res = await authAPI.verify(body)
+    if (!res.success) {
+      //   dispatch(loading())
+      dispatch(registerUserFail())
+    } else {
+      //   dispatch(loading())
+      dispatch(registerUserSuccess(res.data))
+    }
+    return res.success
+  } catch (err) {
+    console.log(err)
+    // dispatch(loading())
+    dispatch(registerUserFail())
+    return false
+  }
+}
+
+export const updateProfileApi = (id, body) => async dispatch => {
+  try {
+    const res = await authAPI.updateProfile(id, body)
+    if (!res.success) {
+      return false
+    } else {
+      dispatch(authRequest())
+      return true
+    }
+  } catch (err) {
+    console.log(err)
+  }
+}

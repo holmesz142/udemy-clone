@@ -1,0 +1,35 @@
+.footer {
+    background-color: #1c1d1f;
+    &-content {
+        padding: 24px 48px 0px;
+        font-size: 13.5px;
+        line-height: 27px;
+        .footer-list-link {
+            &-item {
+                display: flex;
+                .link-column {
+                    margin-right: 16px;
+                    .li-link {
+                        // width: 256px;
+                        .link {
+                            color: #fff;
+                            padding: 4px 0;
+                            padding-right: 153px;
+                            &:hover {
+                                // color: #744BD8;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .logo-container {
+            padding: 64px 0px 32px;
+            .logo {
+                width: 91px;
+                height: 35px;
+            }
+        }
+    }
+}

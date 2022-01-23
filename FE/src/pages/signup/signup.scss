@@ -1,0 +1,66 @@
+.main-content {
+    .login {
+        max-width: 380px;
+        margin: 24px auto;
+        padding: 24px 24px 16px;
+        &-header {
+            text-align: center;
+        }
+        &-form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            .input-container {
+                width: 332px;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #fff;
+                border: 1px solid #000;
+                padding-left: 10px;
+                margin: 20px 0px 10px 0;
+                .input-content {
+                    padding: 11px 15px 12px 20px;
+                    height: 48px;
+                    width: 296px;
+                }
+            }
+            .submit-row {
+                display: flex;
+                flex-direction: column;
+                .btn-submit {
+                    height: 50px;
+                    color: #fff;
+                    font-weight: 700;
+                    background-color: #a435f0;
+                    border: none;
+                    font-size: 16px;
+                    margin: 10px 0;
+                    &:hover {
+                        background-color: #7325a3;
+                        transition: all 0.2s linear;
+                    }
+                }
+                .term-policy-container {
+                    text-align: center;
+                    font-size: 10px;
+                    margin-top: 25px;
+                    .link {
+                        color: #a435f0;
+                    }
+                }
+            }
+        }
+        .login-footer {
+            font-size: 16px;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 100px;
+            .sign-up-link {
+                font-weight: 600;
+                color: #7325a3;
+            }
+        }
+    }
+}

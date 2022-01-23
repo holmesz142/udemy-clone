@@ -1,0 +1,22 @@
+.intro {
+    &-title {
+        margin: 36px 0 10px;
+        font-size: 20px;
+    }
+    .list-intro {
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+        padding-bottom: 15px;
+        &-item {
+            margin-bottom: 12px;
+            padding: 0 24px;
+            font-size: 14px;
+        }
+    }
+    .purple {
+        color: #8710d8;
+        font-size: 20px;
+        margin-right: 5px;
+    }
+}

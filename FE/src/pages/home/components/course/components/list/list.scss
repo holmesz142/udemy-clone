@@ -1,0 +1,24 @@
+.list{
+    margin: 20px 0px;
+    position: relative;
+    .swiper-button-prev {
+        position: absolute;
+        transform: translate(-10%, -50%);
+        border-radius: 100rem;
+        background-color: #000;
+        color: #fff;
+        width: 60px;
+        height: 60px;
+    }
+    .swiper-button-next{
+        position: absolute;
+        transform: translate(10%, -50%);
+        border-radius: 100rem;
+        z-index: 99;
+        background-color: #000;
+        color: #fff;
+        width: 60px;
+        height: 60px;
+        margin-right: 5px;
+    }
+}

@@ -1,0 +1,141 @@
+###
+POST http://localhost:3000/registerCustomer
+content-type: application/json
+
+{
+  "email":"208holmesz@gmail.com",
+  "password": "lamlamlam",
+  "fullName":"Pham Tan Dat"
+}
+
+###
+POST http://localhost:5000/product/createProduct
+Content-Type: application/json
+
+{
+  "Name": "JavaScript Cơ Bản",
+    "Description": "Học Javascript cơ bản phù hợp cho người chưa từng học lập trình. Với hơn 100 bài học và có bài tập thực hành sau mỗi bài học.",
+    "Price": "Miễn phí",
+    "Intro": ["Hiểu chi tiết về các khái niệm cơ bản trong JS", "Tự tin khi phỏng vấn với kiến thức vững chắc", "Nắm chắc các tính năng trong phiên bản ES6", "Ghi nhớ các khái niệm nhờ bài tập trắc nghiệm", "Xây dựng được website đầu tiên kết hợp với JS", "Có nền tảng để học các thư viện và framework JS", "Thành thạo DOM APIs để tương tác với trang web", "Nâng cao tư duy với các bài kiểm tra với testcases" ],
+    "Contents": [{
+          "part": "1. Giới thiệu",
+          "content": "Cài đặt môi trường"
+      },
+      {
+          "part": "2. Làm quen",
+          "content": "Cách sử dụng JS với HTML"
+      },
+      {
+          "part": "3. Kiến thức cốt lõi (phần 1)",
+          "content": "Hiểu hơn về function"
+      },
+      {
+          "part": "4. HTML DOM",
+          "content": "HTML DOM vs DOM API"
+      },
+      {
+          "part": "5. Kiến thức cốt lõi (phần 2)",
+          "content": "JSON, Promise, Fetch, REST API"
+      },
+      {
+          "part": "6. ECMAScript 6+",
+          "content": "ECMAScript 6+ là gì?"
+    }],
+    "Requirements": ["Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)", "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó", "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học", "Bạn không cần biết gì hơn nữa, trong khóa học tôi sẽ chỉ cho bạn những gì bạn cần phải biết"],
+    "Image": "https://fullstack.edu.vn/courses/javascript-co-ban",
+    "TotalLesson": "120",
+    "TotalTime": "25 giờ 30 phút",
+    "tags": ["JavaScript", "js"]
+}
+###
+POST http://localhost:5000/product/createProduct
+Content-Type: application/json
+
+{
+    "Name": "JavaScript Cơ Bản",
+    "Description": "Học Javascript cơ bản phù hợp cho người chưa từng học lập trình. Với hơn 100 bài học và có bài tập thực hành sau mỗi bài học.",
+    "Price": "Miễn phí",
+    "Author":"Alexander",
+    "Intros": [
+        {
+            "intro": "Hiểu chi tiết về các khái niệm cơ bản trong JS"
+        },
+        {
+            "intro": "Tự tin khi phỏng vấn với kiến thức vững chắc"
+        },
+        {
+            "intro": "Nắm chắc các tính năng trong phiên bản ES6"
+        },
+        {
+            "intro": "Ghi nhớ các khái niệm nhờ bài tập trắc nghiệm"
+        },
+        {
+            "intro": "Xây dựng được website đầu tiên kết hợp với JS"
+        },
+        {
+            "intro": "Có nền tảng để học các thư viện và framework JS"
+        },
+        {
+            "intro": "Thành thạo DOM APIs để tương tác với trang web"
+        },
+        {
+            "intro": "Nâng cao tư duy với các bài kiểm tra với testcases"
+        }
+    ],
+    "Contents": [{
+          "part": "1. Giới thiệu",
+          "content": "Cài đặt môi trường"
+      },
+      {
+          "part": "2. Làm quen",
+          "content": "Cách sử dụng JS với HTML"
+      },
+      {
+          "part": "3. Kiến thức cốt lõi (phần 1)",
+          "content": "Hiểu hơn về function"
+      },
+      {
+          "part": "4. HTML DOM",
+          "content": "HTML DOM vs DOM API"
+      },
+      {
+          "part": "5. Kiến thức cốt lõi (phần 2)",
+          "content": "JSON, Promise, Fetch, REST API"
+      },
+      {
+          "part": "6. ECMAScript 6+",
+          "content": "ECMAScript 6+ là gì?"
+    }],
+    "Requirements": [
+        {
+            "requirement": "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)"
+        },
+        {
+            "requirement": "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó"
+        },
+        {
+            "requirement": "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học"
+        },
+        {
+            "requirement": "Bạn không cần biết gì hơn nữa, trong khóa học tôi sẽ chỉ cho bạn những gì bạn cần phải biết"
+        }
+    ],
+    "Image": "https://fullstack.edu.vn/courses/javascript-co-ban",
+    "TotalLesson": "120",
+    "TotalTime": "25 giờ 30 phút"
+    
+}
+
+###
+POST http://localhost:5000/auth/updateProfile/61a56521de1e6d0d5403ed12
+Content-Type: application/json
+
+{
+    "fullName": "Vit",
+    "email": "208holmesz@gmail.com",
+    "phoneNumber": "01669828648",
+    "address": "Vung Tau, Viet Nam"
+}
+###
+GET http://localhost:5000/auth/getAllUser
+Content-Type: application/json
